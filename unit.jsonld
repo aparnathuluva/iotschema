@@ -23,7 +23,7 @@
 		"@id": "iot:Celsius",
 		"@type": "iot:TemperatureUnit",
 		"rdfs:comment": "unit of the temperature of which the scale is defined by two fixe-points, the temperatures of freezing and boiling point of water at normal pressure (air pressure of 1 013,25 hPa)",
-		"rdfs:label": "cel",
+		"rdfs:label": "°C",
 		"iot:reference": "0112/2///62720#UAA033#001",
 		"dct:source": "http://data.nasa.gov/qudt/owl/unit#DegreeCelsius"
 	},
@@ -39,7 +39,7 @@
 		"@id": "iot:Fahrenheit",
 		"@type": "iot:TemperatureUnit",
 		"rdfs:comment": "unit of temperature according to the temperature of the freezing and boiling point of water (32 °F and 212 °F)",
-		"rdfs:label": "degf",
+		"rdfs:label": "°F",
 		"iot:reference" : "0112/2///62720#UAA039#001",
 		"dct:source": "http://data.nasa.gov/qudt/owl/unit#DegreeFahrenheit"
     },
@@ -80,7 +80,7 @@
 		"@id": "iot:Lux",
 		"@type": "iot:IlluminanceUnit",
 		"rdfs:comment": "Illuminance Unit",
-		"rdfs:label": "lm/m2",
+		"rdfs:label": "lx",
 	    "iot:reference" : "0112/2///62720#UAA723#001",
 	    "dct:source": "http://qudt.org/vocab/unit#Lux"
 	},
@@ -179,7 +179,7 @@
 		"@id": "iot:LitrePerMinute",
 		"@type": "iot:FlowRateUnit",
 		"rdfs:comment": "Unit of measurement of flow rate of a substance",
-		"rdfs:label": "L/min",
+		"rdfs:label": "l/min",
 		"iot:reference": "0112/2///62720#UAA659#001"
 	},
 	{
@@ -218,28 +218,28 @@
 		"@id": "iot:VoltAmpere",
 		"@type": "iot:ApparentPowerUnit",
 		"rdfs:comment": "The unit of the apparent power.",
-		"rdfs:label": "V.A",
+		"rdfs:label": "VA",
 		"iot:reference": "0112/2///62720#UAA298#001"
 	},
 	{
 		"@id": "iot:KiloVoltAmpere",
 		"@type": "iot:ApparentPowerUnit",
 		"rdfs:comment": "The unit of the apparent power, expressed in kilo (one thousand) as a decimal unit prefix.",
-		"rdfs:label": "kV·A",
+		"rdfs:label": "kVA",
 		"iot:reference": "0112/2///62720#UAA581#001"
 	},
 	{
 		"@id": "iot:MegaVoltAmpere",
 		"@type": "iot:ApparentPowerUnit",
 		"rdfs:comment": "The unit of the apparent power, expressed in mega (one million) as a decimal unit prefix.",
-		"rdfs:label": "MV.A",
+		"rdfs:label": "MVA",
 		"iot:reference": "0112/2///62720#UAA222#001"
 	},
 	{
 		"@id": "iot:GigaVoltAmpere",
 		"@type": "iot:ApparentPowerUnit",
 		"rdfs:comment": "The unit of the apparent power, expressed in giga (one billion) as a decimal unit prefix.",
-		"rdfs:label": "GV.A", 
+		"rdfs:label": "GVA", 
 		"iot:reference": "0112/2///62720#UAB534#001"
 	},
 	{
@@ -606,7 +606,7 @@
 		"@id": "iot:WattHour",
 		"@type": "iot:ActiveEnergyUnit",
 		"rdfs:comment": "The unit of the active enregy.",
-		"rdfs:label": "W·h",
+		"rdfs:label": "Wh",
 		"dct:source": "http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Watthour",
 		"iot:reference": "0112/2///62720#UAA308#001"
 	},
@@ -614,7 +614,7 @@
 		"@id": "iot:KiloWattHour",
 		"@type": "iot:ActiveEnergyUnit",
 		"rdfs:comment": "The unit of the active enregy, expressed in kilo (one thousand) as a decimal unit prefix.",
-		"rdfs:label": "kW·h",
+		"rdfs:label": "kWh",
 		"dct:source": "http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Kilowatthour",
 		"iot:reference": "0112/2///62720#UAA584#001"
 	},
@@ -622,21 +622,21 @@
 		"@id": "iot:MegaWattHour",
 		"@type": "iot:ActiveEnergyUnit",
 		"rdfs:comment": "The unit of the active enregy, expressed in mega (one million) as a decimal unit prefix.",
-		"rdfs:label": "MW·h",
+		"rdfs:label": "MWh",
 		"iot:reference": "0112/2///62720#UAA225#001"
 	},
 	{
 		"@id": "iot:GigaWattHour",
 		"@type": "iot:ActiveEnergyUnit",
 		"rdfs:comment": "The unit of the active enregy, expressed in giga (one billion) as a decimal unit prefix.",
-		"rdfs:label": "GW·h",
+		"rdfs:label": "GWh",
 		"iot:reference": "0112/2///62720#UAA155#001"
 	},
 	{
 		"@id": "iot:TeraWattHour",
 		"@type": "iot:ActiveEnergyUnit",
 		"rdfs:comment": "The unit of the active enregy, expressed in giga (one trillion) as a decimal unit prefix.",
-		"rdfs:label": "TW·h",
+		"rdfs:label": "TWh",
 		"iot:reference": "0112/2///62720#UAA155#001"
 	},
 	{
@@ -652,33 +652,33 @@
 		"@id": "iot:VoltAmpereReactiveHour",
 		"@type": "iot:ReactiveEnergyUnit",
 		"rdfs:comment": "The unit of reactive enregy.",
-		"rdfs:label": "var·h"
+		"rdfs:label": "varh"
 	},
 	{
 		"@id": "iot:KiloVoltAmpereReactiveHour",
 		"@type": "iot:ReactiveEnergyUnit",
 		"rdfs:comment": "The unit of reactive enregy, expressed in kilo (one thousand) as a decimal unit prefix.",
-		"rdfs:label": "kvar·h",
+		"rdfs:label": "kvarh",
 		"iot:reference": "0112/2///62720#UAB195#001"
 	},
 	{
 		"@id": "iot:MegaVoltAmpereReactiveHour",
 		"@type": "iot:ReactiveEnergyUnit",
 		"rdfs:comment": "The unit of reactive enregy, expressed in mega (one million) as a decimal unit prefix.",
-		"rdfs:label": "Mvar·h",
+		"rdfs:label": "Mvarh",
 		"iot:reference": "0112/2///62720#UAB198#001"
 	},
 	{
 		"@id": "iot:GigaVoltAmpereReactiveHour",
 		"@type": "iot:ReactiveEnergyUnit",
 		"rdfs:comment": "The unit of reactive enregy, expressed in giga (one billion) as a decimal unit prefix.",
-		"rdfs:label": "Gvar·h"
+		"rdfs:label": "Gvarh"
 	},
 	{
 		"@id": "iot:TeraVoltAmpereReactiveHour",
 		"@type": "iot:ReactiveEnergyUnit",
 		"rdfs:comment": "The unit of the reactive enregy, expressed in giga (one trillion) as a decimal unit prefix.",
-		"rdfs:label": "Tvar·h"
+		"rdfs:label": "Tvarh"
 	}
   ]
 }
