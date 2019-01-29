@@ -564,34 +564,34 @@
 		}
 	},
 	{
-		"@id": "iot:VoltAmpereHours",
+		"@id": "iot:VoltAmpereHour",
 		"@type": "iot:ApparentEnergyUnit",
 		"rdfs:comment": "The unit of the apparent energy.",
-		"rdfs:label": "volt-ampere-hours"
+		"rdfs:label": "VAh"
 	},
 	{
-		"@id": "iot:KiloVoltAmpereHours",
+		"@id": "iot:KiloVoltAmpereHour",
 		"@type": "iot:ApparentEnergyUnit",
 		"rdfs:comment": "The unit of the apparent enregy, expressed in kilo (one thousand) as a decimal unit prefix.",
-		"rdfs:label": "kilovolt-ampere-hours"
+		"rdfs:label": "kVAh"
 	},
 	{
-		"@id": "iot:MegaVoltAmpereHours",
+		"@id": "iot:MegaVoltAmpereHour",
 		"@type": "iot:ApparentEnergyUnit",
 		"rdfs:comment": "The unit of the apparent enregy, expressed in mega (one million) as a decimal unit prefix.",
-		"rdfs:label": "megavolt-ampere-hours"
+		"rdfs:label": "MVAh"
 	},
 	{
-		"@id": "iot:GigaVoltAmpereHours",
+		"@id": "iot:GigaVoltAmpereHour",
 		"@type": "iot:ApparentEnergyUnit",
 		"rdfs:comment": "The unit of the apparent enregy, expressed in giga (one billion) as a decimal unit prefix.",
-		"rdfs:label": "gigavolt-ampere-hours"
+		"rdfs:label": "GVAh"
 	},
 	{
 		"@id": "iot:TeraVoltAmpereHours",
 		"@type": "iot:ApparentPowerUnit",
 		"rdfs:comment": "The unit of the apparent enregy, expressed in giga (one trillion) as a decimal unit prefix.",
-		"rdfs:label": "teravolt-ampere-hours"
+		"rdfs:label": "TVAh"
 	},
 	{
 		"@id": "iot:ActiveEnergyUnit",
