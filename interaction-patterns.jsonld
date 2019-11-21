@@ -75,12 +75,6 @@
       },
       {
         "@id": "iot:TemperatureAlarm"
-      },
-      {
-        "@id": "iot:OverTemperatureAlarm"
-      },
-      {
-        "@id": "iot:UnderTemperatureAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -169,13 +163,7 @@
         "@id": "iot:RampTimeData"
       },
       {
-        "@id": "iot:TimeData"
-      },
-      {
         "@id": "iot:WindData"
-      },
-      {
-        "@id": "iot:LevelData"
       },
       {
         "@id": "iot:RColourData"
@@ -251,18 +239,6 @@
       },
       {
         "@id": "iot:ReactiveEnergyData"
-      },
-      {
-        "@id": "iot:StateOfChargeData"
-      },
-      {
-        "@id": "iot:ElectricChargeData"
-      },
-      {
-        "@id": "iot:CRateData"
-      },
-      {
-        "@id": "iot:ERateData"
       }
     ],
     "schema:rangeIncludes": [
@@ -295,9 +271,6 @@
       },
       {
         "@id": "iot:WindData"
-      },
-      {
-        "@id": "iot:LevelData"
       },
       {
         "@id": "iot:RColourData"
@@ -381,9 +354,6 @@
       },
       {
         "@id": "iot:WindData"
-      },
-      {
-        "@id": "iot:LevelData"
       },
       {
         "@id": "iot:RColourData"
@@ -620,23 +590,18 @@
     ]
   },
   {
-    "@id": "iot:booleanDataType",
+    "@id": "schema:Boolean",
     "@type": [
       "rdf:Property"
     ],
     "rdfs:comment": [
       {
-        "@value": "The data with value type Boolean."
+        "@value": "A property that relates an Interaction pattern with its data ."
       }
     ],
     "rdfs:label": [
       {
-        "@value": "booleanDataType"
-      }
-    ],
-    "rdfs:subPropertyOf": [
-      {
-        "@id": "schema:propertyType"
+        "@value": "Boolean"
       }
     ],
     "schema:domainIncludes": [
@@ -645,12 +610,6 @@
       },
       {
         "@id": "iot:StateData"
-      },
-      {
-        "@id": "iot:ChargingStatusData"
-      },
-      {
-        "@id": "iot:LowBatteryData"
       }
     ],
     "schema:rangeIncludes": [
@@ -1065,6 +1024,37 @@
     ]
   },
   {
+    "@id": "iot:runModeType",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates an Interaction pattern with its data ."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "runModeType"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "schema:propertyType"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:RunModeData"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:RunModeType"
+      }
+    ]
+  },
+  {
     "@id": "iot:RunModeType",
     "@type": [
       "rdfs:Class"
@@ -1280,33 +1270,31 @@
     ]
   },
   {
-    "@id": "iot:timeUnitCode",
+    "@id": "schema:Number",
     "@type": [
       "rdf:Property"
     ],
     "rdfs:comment": [
       {
-        "@value": "A property that relates iot:timeUnitCode with its unit."
+        "@value": "A property that relates an Interaction pattern with its data ."
       }
     ],
     "rdfs:label": [
       {
-        "@value": "timeUnitCode"
-      }
-    ],
-    "rdfs:subPropertyOf": [
-      {
-        "@id": "schema:unitCode"
+        "@value": "Number"
       }
     ],
     "schema:domainIncludes": [
       {
         "@id": "iot:TimeData"
+      },
+      {
+        "@id": "iot:LevelData"
       }
     ],
     "schema:rangeIncludes": [
       {
-        "@id": "iot:TimeUnitType"
+        "@id": "schema:Number"
       }
     ]
   },
@@ -1642,37 +1630,6 @@
     "rdfs:subClassOf": [
       {
         "@id": "schema:PropertyValue"
-      }
-    ]
-  },
-  {
-    "@id": "iot:levelUnitCode",
-    "@type": [
-      "rdf:Property"
-    ],
-    "rdfs:comment": [
-      {
-        "@value": "A property that relates iot:levelUnitCode with its unit."
-      }
-    ],
-    "rdfs:label": [
-      {
-        "@value": "levelUnitCode"
-      }
-    ],
-    "rdfs:subPropertyOf": [
-      {
-        "@id": "schema:unitCode"
-      }
-    ],
-    "schema:domainIncludes": [
-      {
-        "@id": "iot:LevelData"
-      }
-    ],
-    "schema:rangeIncludes": [
-      {
-        "@id": "iot:LevelUnit"
       }
     ]
   },
@@ -2161,6 +2118,37 @@
     "rdfs:subClassOf": [
       {
         "@id": "schema:PropertyValue"
+      }
+    ]
+  },
+  {
+    "@id": "iot:motionSensorType",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates an Interaction pattern with its data ."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "motionSensorType"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "schema:propertyType"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:MotionTypeData"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:MotionSensorType"
       }
     ]
   },
@@ -2657,9 +2645,6 @@
       },
       {
         "@id": "iot:ExpectedUpstreamPressure"
-      },
-      {
-        "@id": "iot:OverPressureAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -3932,15 +3917,6 @@
       },
       {
         "@id": "iot:TotalActivePower"
-      },
-      {
-        "@id": "iot:MaxChargePower"
-      },
-      {
-        "@id": "iot:MaxDischargePower"
-      },
-      {
-        "@id": "iot:PccPower"
       }
     ],
     "schema:rangeIncludes": [
@@ -4589,15 +4565,6 @@
       },
       {
         "@id": "iot:AverageElectricCurrent"
-      },
-      {
-        "@id": "iot:MaxChargeCurrent"
-      },
-      {
-        "@id": "iot:MaxDischargeCurrent"
-      },
-      {
-        "@id": "iot:OverElectricCurrentAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -4940,15 +4907,6 @@
       },
       {
         "@id": "iot:AveragePhaseToPhaseVoltage"
-      },
-      {
-        "@id": "iot:BatteryLowVoltageAlarm"
-      },
-      {
-        "@id": "iot:OverVoltageAlarm"
-      },
-      {
-        "@id": "iot:UnderVoltageAlarm"
       }
     ],
     "schema:rangeIncludes": [
