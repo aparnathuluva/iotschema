@@ -104,7 +104,7 @@
     ]
   },
   {
-    "@id": "iot:switchstatus",
+    "@id": "iot:switchStatus",
     "@type": [
       "rdf:Property"
     ],
@@ -115,7 +115,7 @@
     ],
     "rdfs:label": [
       {
-        "@value": "switchstatus"
+        "@value": "switchStatus"
       }
     ],
     "rdfs:subPropertyOf": [
@@ -169,6 +169,12 @@
       },
       {
         "@id": "iot:BinarySwitchControl"
+      },
+      {
+        "@id": "iot:Microphone"
+      },
+      {
+        "@id": "iot:Camera"
       }
     ],
     "schema:rangeIncludes": [
@@ -209,6 +215,12 @@
       },
       {
         "@id": "iot:BinarySwitchControl"
+      },
+      {
+        "@id": "iot:Microphone"
+      },
+      {
+        "@id": "iot:Camera"
       }
     ],
     "schema:rangeIncludes": [
@@ -1497,7 +1509,7 @@
     ]
   },
   {
-    "@id": "iot:carbonDioxideconcentration",
+    "@id": "iot:carbonDioxideConcentration",
     "@type": [
       "rdf:Property"
     ],
@@ -1508,7 +1520,7 @@
     ],
     "rdfs:label": [
       {
-        "@value": "carbonDioxideconcentration"
+        "@value": "carbonDioxideConcentration"
       }
     ],
     "rdfs:subPropertyOf": [
@@ -1555,6 +1567,99 @@
     "schema:rangeIncludes": [
       {
         "@id": "iot:ArgonConcentration"
+      }
+    ]
+  },
+  {
+    "@id": "iot:demandControlledVentilation",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates a capability with its DemandControlledVentilation interaction pattern."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "demandControlledVentilation"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "iot:providesInteractionPattern"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:AmbientAir"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:DemandControlledVentilation"
+      }
+    ]
+  },
+  {
+    "@id": "iot:carbonDioxideConcentrationLimit",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates a capability with its CarbonDioxideConcentrationLimit interaction pattern."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "carbonDioxideConcentrationLimit"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "iot:providesInteractionPattern"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:AmbientAir"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:CarbonDioxideConcentrationLimit"
+      }
+    ]
+  },
+  {
+    "@id": "iot:highCarbonDioxideConcentrationAlarm",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates a capability with its HighCarbonDioxideConcentrationAlarm interaction pattern."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "highCarbonDioxideConcentrationAlarm"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "iot:providesInteractionPattern"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:AmbientAir"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:HighCarbonDioxideConcentrationAlarm"
       }
     ]
   },
@@ -3670,6 +3775,182 @@
     "schema:rangeIncludes": [
       {
         "@id": "iot:MakeImage"
+      }
+    ]
+  },
+  {
+    "@id": "iot:AmbientAir",
+    "@type": "rdfs:Class",
+    "rdfs:subClassOf": {
+      "@id": "iot:Capability"
+    },
+    "rdfs:comment": "A capability to monitor gases in ambient air. Ambient air refers to any unconfined portion of the atmosphere or outdoor air.",
+    "rdfs:label": "AmbientAir",
+    "iot:domain": [
+      {
+        "@id": "iot:Building"
+      },
+      {
+        "@id": "iot:Industry"
+      },
+      {
+        "@id": "iot:Home"
+      }
+    ]
+  },
+  {
+    "@id": "iot:demandControlledVentilation",
+    "@type": "rdf:Property",
+    "rdfs:label": "demandControlledVentilation",
+    "rdfs:comment": "A property that relates a capability with its DemandControlledVentilation interaction pattern.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:AmbientAir"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:DemandControlledVentilation"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesInteractionPattern"
+    }
+  },
+  {
+    "@id": "iot:carbonDioxideconcentrationLimit",
+    "@type": "rdf:Property",
+    "rdfs:label": "carbonDioxideconcentrationLimit",
+    "rdfs:comment": "A property that relates a capability with its CarbonDioxideConcentrationLimit interaction pattern.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:AmbientAir"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:CarbonDioxideConcentrationLimit"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesInteractionPattern"
+    }
+  },
+  {
+    "@id": "iot:highCarbonDioxideConcentrationAlarm",
+    "@type": "rdf:Property",
+    "rdfs:label": "highCarbonDioxideConcentrationAlarm",
+    "rdfs:comment": "An event that relates a capability with its HighCarbonDioxideConcentrationAlarm interaction pattern.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:AmbientAir"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:HighCarbonDioxideConcentrationAlarm"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesInteractionPattern"
+    }
+  },
+  {
+    "@id": "iot:VariableFrequencyDrive",
+    "@type": "rdfs:Class",
+    "rdfs:subClassOf": {
+      "@id": "iot:Capability"
+    },
+    "rdfs:comment": "A capability for a variable-frequency drive (VFD) or adjustable-frequency drive (AFD), variable-voltage/variable-frequency (VVVF) drive, variable speed drive (VSD), AC drive, micro drive or inverter drive. It is a type of adjustable-speed drive used in electro-mechanical drive systems to control AC motor speed and torque by varying motor input frequency and voltage.",
+    "rdfs:label": "VariableFrequencyDrive",
+    "iot:domain": [
+      {
+        "@id": "iot:Building"
+      },
+      {
+        "@id": "iot:Industry"
+      },
+      {
+        "@id": "iot:Home"
+      }
+    ]
+  },
+  {
+    "@id": "iot:currentSpeed",
+    "@type": "rdf:Property",
+    "rdfs:label": "currentSpeed",
+    "rdfs:comment": "A property that relates a capability with its CurrentSpeed interaction pattern.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:VariableFrequencyDrive"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:CurrentSpeed"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesInteractionPattern"
+    }
+  },
+  {
+    "@id": "iot:targetSpeed",
+    "@type": "rdf:Property",
+    "rdfs:label": "targetSpeed",
+    "rdfs:comment": "A property that relates a capability with its TargetSpeed interaction pattern.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:VariableFrequencyDrive"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:TargetSpeed"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesInteractionPattern"
+    }
+  },
+  {
+    "@id": "iot:rampUp",
+    "@type": "rdf:Property",
+    "rdfs:label": "rampUp",
+    "rdfs:comment": "An action that relates a capability with its RampUp interaction pattern.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:VariableFrequencyDrive"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:RampUp"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesInteractionPattern"
+    }
+  },
+  {
+    "@id": "iot:rampDown",
+    "@type": "rdf:Property",
+    "rdfs:label": "rampDown",
+    "rdfs:comment": "An action that relates a capability with its RampDown interaction pattern.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:VariableFrequencyDrive"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:RampDown"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesInteractionPattern"
+    }
+  },
+  {
+    "@id": "iot:Fan",
+    "@type": "rdfs:Class",
+    "rdfs:subClassOf": {
+      "@id": "iot:VariableFrequencyDrive"
+    },
+    "rdfs:comment": "A capability to control a fan driven flow of outdoor air into a building.",
+    "rdfs:label": "Fan",
+    "iot:domain": [
+      {
+        "@id": "iot:Building"
+      },
+      {
+        "@id": "iot:Home"
       }
     ]
   }

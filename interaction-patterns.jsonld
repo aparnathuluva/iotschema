@@ -74,7 +74,10 @@
         "@id": "iot:TemperatureAlarm"
       },
       {
-        "@id": "iot:TemperatureAlarm"
+        "@id": "iot:OverTemperatureAlarm"
+      },
+      {
+        "@id": "iot:UnderTemperatureAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -204,7 +207,13 @@
       {
         "@id": "iot:NitrogenConcentrationData"
       },
-      {
+	  {
+        "@id": "iot:DemandControlledVentilationData"
+      },
+	  {
+        "@id": "iot:CarbonDioxideConcentrationLimitData"
+      },
+	  {
         "@id": "iot:OxygenConcentrationData"
       },
       {
@@ -322,6 +331,12 @@
       },
       {
         "@id": "iot:VoltageData"
+      },
+	  {
+        "@id": "iot:DemandControlledVentilation"
+      },
+	  {
+        "@id": "iot:CarbonDioxideConcentrationLimit"
       }
     ],
     "schema:rangeIncludes": [
@@ -405,6 +420,12 @@
       },
       {
         "@id": "iot:VoltageData"
+      },
+	  {
+        "@id": "iot:DemandControlledVentilation"
+      },
+	  {
+        "@id": "iot:CarbonDioxideConcentrationLimit"
       }
     ],
     "schema:rangeIncludes": [
@@ -534,87 +555,6 @@
     "rdfs:subClassOf": [
       {
         "@id": "iot:Property"
-      }
-    ]
-  },
-  {
-    "@id": "iot:providesStatusData",
-    "@type": [
-      "rdf:Property"
-    ],
-    "rdfs:comment": [
-      {
-        "@value": "A property that relates an Interaction Pattern with its output StatusData."
-      }
-    ],
-    "rdfs:label": [
-      {
-        "@value": "providesStatusData"
-      }
-    ],
-    "rdfs:subPropertyOf": [
-      {
-        "@id": "iot:providesOutputData"
-      }
-    ],
-    "schema:domainIncludes": [
-      {
-        "@id": "iot:OperationStatus"
-      }
-    ],
-    "schema:rangeIncludes": [
-      {
-        "@id": "iot:StatusData"
-      }
-    ]
-  },
-  {
-    "@id": "iot:StatusData",
-    "@type": [
-      "rdfs:Class"
-    ],
-    "rdfs:comment": [
-      {
-        "@value": "StatusData"
-      }
-    ],
-    "rdfs:label": [
-      {
-        "@value": "StatusData"
-      }
-    ],
-    "rdfs:subClassOf": [
-      {
-        "@id": "schema:PropertyValue"
-      }
-    ]
-  },
-  {
-    "@id": "schema:Boolean",
-    "@type": [
-      "rdf:Property"
-    ],
-    "rdfs:comment": [
-      {
-        "@value": "A property that relates an Interaction pattern with its data ."
-      }
-    ],
-    "rdfs:label": [
-      {
-        "@value": "Boolean"
-      }
-    ],
-    "schema:domainIncludes": [
-      {
-        "@id": "iot:StatusData"
-      },
-      {
-        "@id": "iot:StateData"
-      }
-    ],
-    "schema:rangeIncludes": [
-      {
-        "@id": "schema:Boolean"
       }
     ]
   },
@@ -843,7 +783,7 @@
     ],
     "rdfs:comment": [
       {
-        "@value": "Actual speed of changing between 2 dimming values"
+        "@value": "Actual time needed to make a transition between two states in a state-changing action, e.g., to gradually change voltage or frequency between two defined values."
       }
     ],
     "rdfs:label": [
@@ -906,6 +846,9 @@
     "rdfs:subClassOf": [
       {
         "@id": "schema:PropertyValue"
+      },
+	  {
+        "@id": "iot:TimeData"
       }
     ]
   },
@@ -1367,7 +1310,7 @@
     ],
     "rdfs:comment": [
       {
-        "@value": "A property that relates an Interaction Pattern with its input indData."
+        "@value": "A property that relates an Interaction Pattern with its input WindData."
       }
     ],
     "rdfs:label": [
@@ -1520,18 +1463,18 @@
     ]
   },
   {
-    "@id": "iot:providesStateData",
+    "@id": "iot:providesBooleanData",
     "@type": [
       "rdf:Property"
     ],
     "rdfs:comment": [
       {
-        "@value": "A property that relates an Interaction Pattern with its output StateData."
+        "@value": "A property that relates an Interaction Pattern with its output BooleanData."
       }
     ],
     "rdfs:label": [
       {
-        "@value": "providesStateData"
+        "@value": "providesBooleanData"
       }
     ],
     "rdfs:subPropertyOf": [
@@ -1542,11 +1485,26 @@
     "schema:domainIncludes": [
       {
         "@id": "iot:MotionDetected"
+      },
+	  {
+        "@id": "iot:SwitchStatus"
+      },
+	  {
+        "@id": "iot:TemperatureAlarm"
+      },
+	  {
+        "@id": "iot:HighCarbonDioxideConcentrationAlarm"
+      },
+	  {
+        "@id": "iot:OperationStatus"
+      }, 
+	  {
+        "@id": "iot:OverflowStatus"
       }
     ],
     "schema:rangeIncludes": [
       {
-        "@id": "iot:StateData"
+		"@id": "schema:Boolean"
       }
     ]
   },
@@ -2009,27 +1967,6 @@
     "rdfs:label": [
       {
         "@value": "DimmerData"
-      }
-    ],
-    "rdfs:subClassOf": [
-      {
-        "@id": "schema:PropertyValue"
-      }
-    ]
-  },
-  {
-    "@id": "iot:StateData",
-    "@type": [
-      "rdfs:Class"
-    ],
-    "rdfs:comment": [
-      {
-        "@value": "State data"
-      }
-    ],
-    "rdfs:label": [
-      {
-        "@value": "StateData"
       }
     ],
     "rdfs:subClassOf": [
@@ -2645,6 +2582,9 @@
       },
       {
         "@id": "iot:ExpectedUpstreamPressure"
+      },
+      {
+        "@id": "iot:OverPressureAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -3157,32 +3097,6 @@
     ]
   },
   {
-    "@id": "scheprovidesma:Boolean",
-    "@type": [
-      "rdf:Property"
-    ],
-    "rdfs:comment": [
-      {
-        "@value": "A property that relates an Interaction Pattern with its output ma:Boolean."
-      }
-    ],
-    "rdfs:subPropertyOf": [
-      {
-        "@id": "iot:providesOutputData"
-      }
-    ],
-    "schema:domainIncludes": [
-      {
-        "@id": "iot:TemperatureAlarm"
-      }
-    ],
-    "schema:rangeIncludes": [
-      {
-        "@id": "schema:Boolean"
-      }
-    ]
-  },
-  {
     "@id": "iot:CarbonDioxideConcentration",
     "@type": [
       "rdfs:Class"
@@ -3235,7 +3149,8 @@
     ],
     "schema:domainIncludes": [
       {
-        "@id": "iot:CarbonDioxideConcentration"
+        "@id": "iot:CarbonDioxideConcentration",
+		"@id": "iot:HighCarbonDioxideConcentrationAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -3266,18 +3181,18 @@
     ]
   },
   {
-    "@id": "iot:carbonDioxideconcentrationUnitCode",
+    "@id": "iot:carbonDioxideConentrationUnitCode",
     "@type": [
       "rdf:Property"
     ],
     "rdfs:comment": [
       {
-        "@value": "A property that relates iot:carbonDioxideconcentrationUnitCode with its unit."
+        "@value": "A property that relates iot:carbonDioxideConentrationUnitCode with its unit."
       }
     ],
     "rdfs:label": [
       {
-        "@value": "carbonDioxideconcentrationUnitCode"
+        "@value": "carbonDioxideConentrationUnitCode"
       }
     ],
     "rdfs:subPropertyOf": [
@@ -3402,6 +3317,234 @@
     "schema:domainIncludes": [
       {
         "@id": "iot:NitrogenConcentrationData"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:GasInAirConcentrationUnit"
+      }
+    ]
+  },
+  {
+    "@id": "iot:DemandControlledVentilation",
+    "@type": [
+      "rdfs:Class"
+    ],
+    "iot:observable": [
+      {
+        "@value": "schema:Boolean"
+      }
+    ],
+    "iot:writable": [
+      {
+        "@value": "schema:True"
+      }
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "Demand controlled ventilation (DCV) maintains ambient air quality by automated adjustments of the ventilation rate provided to a space in response to changes in conditions such as occupant number or indoor pollutant concentration."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "DemandControlledVentilation"
+      }
+    ],
+    "rdfs:subClassOf": [
+      {
+        "@id": "iot:Property"
+      }
+    ]
+  },
+  {
+    "@id": "iot:providesDemandControlledVentilationData",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates an Interaction Pattern with its output DemandControlledVentilationData."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "providesDemandControlledVentilationData"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "iot:providesOutputData"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:DemandControlledVentilation"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:DemandControlledVentilationData"
+      }
+    ]
+  },
+  {
+    "@id": "iot:DemandControlledVentilationData",
+    "@type": [
+      "rdfs:Class"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "Demand controlled ventilation data."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "DemandControlledVentilationData"
+      }
+    ],
+    "rdfs:subClassOf": [
+      {
+        "@id": "schema:PropertyValue"
+      }
+    ]
+  },
+  {
+    "@id": "iot:demandControlledVentilationUnitCode",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates demandControlledVentilationUnitCode with its unit."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "demandControlledVentilationUnitCode"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "schema:unitCode"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:DemandControlledVentilationData"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:GasInAirConcentrationUnit"
+      }
+    ]
+  },
+  {
+    "@id": "iot:CarbonDioxideConcentrationLimit",
+    "@type": [
+      "rdfs:Class"
+    ],
+    "iot:observable": [
+      {
+        "@value": "schema:Boolean"
+      }
+    ],
+    "iot:writable": [
+      {
+        "@value": "schema:True"
+      }
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "The limit (e.g., min and max value) specified for the concentration of carbon dioxide (CO2) in ambient air."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "CarbonDioxideConcentrationLimit"
+      }
+    ],
+    "rdfs:subClassOf": [
+      {
+        "@id": "iot:Property"
+      }
+    ]
+  },
+  {
+    "@id": "iot:providesCarbonDioxideConcentrationLimitData",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates an Interaction Pattern with its output CarbonDioxideConcentrationLimitData."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "providesCarbonDioxideConcentrationLimitData"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "iot:providesOutputData"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:CarbonDioxideConcentrationLimit"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:CarbonDioxideConcentrationLimitData"
+      }
+    ]
+  },
+  {
+    "@id": "iot:CarbonDioxideConcentrationLimitData",
+    "@type": [
+      "rdfs:Class"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "Carbon dioxide concentration data defining the limit."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "CarbonDioxideConcentrationLimitData"
+      }
+    ],
+    "rdfs:subClassOf": [
+      {
+        "@id": "schema:PropertyValue"
+      }
+    ]
+  },
+  {
+    "@id": "iot:carbonDioxideConcentrationLimitUnitCode",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates carbonDioxideConcentrationLimitUnitCode with its unit."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "carbonDioxideConcentrationLimitUnitCode"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "schema:unitCode"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:CarbonDioxideConcentrationLimitData"
       }
     ],
     "schema:rangeIncludes": [
@@ -4565,6 +4708,9 @@
       },
       {
         "@id": "iot:AverageElectricCurrent"
+      },
+      {
+        "@id": "iot:OverElectricCurrentAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -4907,6 +5053,15 @@
       },
       {
         "@id": "iot:AveragePhaseToPhaseVoltage"
+      },
+      {
+        "@id": "iot:BatteryLowVoltageAlarm"
+      },
+      {
+        "@id": "iot:OverVoltageAlarm"
+      },
+      {
+        "@id": "iot:UnderVoltageAlarm"
       }
     ],
     "schema:rangeIncludes": [
@@ -6535,6 +6690,27 @@
     ]
   },
   {
+    "@id": "iot:HighCarbonDioxideConcentrationAlarm",
+    "@type": [
+      "rdfs:Class"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "Too high carbon dioxide concentration."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "HighCarbonDioxideConcentrationAlarm"
+      }
+    ],
+    "rdfs:subClassOf": [
+      {
+        "@id": "iot:Event"
+      }
+    ]
+  },
+  {
     "@id": "iot:PccPower",
     "@type": [
       "rdfs:Class"
@@ -6583,6 +6759,9 @@
     "rdfs:subClassOf": [
       {
         "@id": "iot:Action"
+      },
+	  {
+        "@id": "iot:TurnOn"
       }
     ]
   },
@@ -6604,6 +6783,9 @@
     "rdfs:subClassOf": [
       {
         "@id": "iot:Action"
+      },
+	  {
+        "@id": "iot:TurnOff"
       }
     ]
   },
@@ -6669,6 +6851,554 @@
         "@id": "iot:Action"
       }
     ]
+  },
+  {
+    "@id": "iot:providesAudioVideoData",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates an Interaction Pattern with its output AudioVideoData."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "providesAudioVideoData"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "iot:providesOutputData"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:StartRecording"
+      },
+	  {
+        "@id": "iot:ResumeRecording"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:AudioVideoData"
+      }
+    ]
+  },
+  {
+    "@id": "iot:AudioVideoData",
+    "@type": [
+      "rdfs:Class"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "Modes of audio/video data."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "AudioVideoData"
+      }
+    ],
+    "rdfs:subClassOf": [
+      {
+        "@id": "schema:PropertyValue"
+      }
+    ]
+  },
+  {
+    "@id": "iot:audioVideoDataMode",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates an Interaction pattern data with its possible (enumerated) modes."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "audioVideoDataMode"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "schema:propertyType"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:AudioVideoData"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:AudioVideoDataMode"
+      }
+    ]
+  },
+  {
+    "@id": "iot:AudioVideoDataMode",
+    "@type": [
+      "rdfs:Class"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "An enumeration of modes of audio/video data."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "AudioVideoDataMode"
+      }
+    ],
+    "rdfs:subClassOf": [
+      {
+        "@id": "schema:Enumeration"
+      }
+    ]
+  },
+  {
+    "@id": "iot:StreamDataMode",
+    "@type": [
+      "iot:AudioVideoDataMode"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "Stream data mode."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "StreamedDataMode"
+      }
+    ]
+  },
+  {
+    "@id": "iot:BufferDataMode",
+    "@type": [
+      "iot:AudioVideoDataMode"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "Buffer data mode."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "BufferDataMode"
+      }
+    ]
+  },
+  {
+    "@id": "iot:providesMakeImageData",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates an Interaction Pattern with its output AudioVideoData."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "providesMakeImageData"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "iot:providesOutputData"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:MakeImage"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:AudioVideoData"
+      }
+    ]
+  },
+  {
+    "@id": "iot:timeUnitCode",
+    "@type": [
+      "rdf:Property"
+    ],
+    "rdfs:comment": [
+      {
+        "@value": "A property that relates iot:timeUnitCode with its unit."
+      }
+    ],
+    "rdfs:label": [
+      {
+        "@value": "timeUnitCode"
+      }
+    ],
+    "rdfs:subPropertyOf": [
+      {
+        "@id": "schema:unitCode"
+      }
+    ],
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:TimeData"
+      }
+    ],
+    "schema:rangeIncludes": [
+      {
+        "@id": "iot:TimeUnit"
+      }
+    ]
+  },
+  {
+    "@id": "iot:CarbonDioxideConcentration",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Concentration of carbon dioxide (CO2) in ambient air.",
+    "rdfs:label": "CarbonDioxideConcentration",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:CarbonDioxideConcentrationData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Carbon dioxide concentration data.",
+    "rdfs:label": "CarbonDioxideConcentrationData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:NitrogenConcentration",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Concentration of nitrogen in ambient air.",
+    "rdfs:label": "NitrogenConcentration",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:NitrogenConcentrationData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Nitrogen concentration data.",
+    "rdfs:label": "NitrogenConcentrationData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:OxygenConcentration",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Concentration of oxygen in ambient air.",
+    "rdfs:label": "OxygenConcentration",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:OxygenConcentrationData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Oxygen concentration data.",
+    "rdfs:label": "OxygenConcentrationData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:ArgonConcentration",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Concentration of argon in ambient air.",
+    "rdfs:label": "ArgonConcentration",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:ArgonConcentrationData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Argon concentration data.",
+    "rdfs:label": "ArgonConcentrationData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:DemandControlledVentilation",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Demand controlled ventilation (DCV) maintains ambient air quality by automated adjustments of the ventilation rate provided to a space in response to changes in conditions such as occupant number or indoor pollutant concentration.",
+    "rdfs:label": "DemandControlledVentilation",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:providesDemandControlledVentilationData",
+    "@type": "rdf:Property",
+    "rdfs:label": "providesDemandControlledVentilationData",
+    "rdfs:comment": "A property that relates an Interaction Pattern with its output DemandControlledVentilationData.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:DemandControlledVentilation"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:DemandControlledVentilationData"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesOutputData"
+    }
+  },
+  {
+    "@id": "iot:DemandControlledVentilationData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Demand controlled ventilation data.",
+    "rdfs:label": "DemandControlledVentilationData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:demandControlledVentilationdata",
+    "@type": "rdf:Property",
+    "rdfs:label": "demandControlledVentilationdata",
+    "rdfs:comment": "A property that relates an Interaction pattern with its data .",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:DemandControlledVentilationData"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:GasInAirConcentrationUnit"
+    }
+  },
+  {
+    "@id": "iot:CarbonDioxideConcentrationLimit",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Carbon dioxide concentration data defining the limit.",
+    "rdfs:label": "CarbonDioxideConcentrationLimit",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:providesCarbonDioxideConcentrationLimitData",
+    "@type": "rdf:Property",
+    "rdfs:label": "providesCarbonDioxideConcentrationLimitData",
+    "rdfs:comment": "A property that relates an Interaction Pattern with its output CarbonDioxideConcentrationLimitData.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:CarbonDioxideConcentrationLimit"
+      },
+      {
+        "@id": "iot:HighCarbonDioxideConcentrationAlarm"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:CarbonDioxideConcentrationLimitData"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesOutputData"
+    }
+  },
+  {
+    "@id": "iot:CarbonDioxideConcentrationLimitData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Carbon dioxide concentration data defining the limit.",
+    "rdfs:label": "CarbonDioxideConcentrationLimitData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:carbonDioxideconcentrationLimitUnitCode",
+    "@type": "rdf:Property",
+    "rdfs:label": "carbonDioxideconcentrationLimitUnitCode",
+    "rdfs:comment": "A property that relates iot:carbonDioxideconcentrationLimitUnitCode with its unit.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:CarbonDioxideConcentrationLimitData"
+      },
+      {
+        "@id": "iot:CarbonDioxideConcentrationLimitData"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:GasInAirConcentrationUnit"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "schema:unitCode"
+    }
+  },
+  {
+    "@id": "iot:HighCarbonDioxideConcentrationAlarm",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Too high carbon dioxide concentration.",
+    "rdfs:label": "HighCarbonDioxideConcentrationAlarm",
+    "rdfs:subClassOf": {
+      "@id": "iot:Event"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:CarbonDioxideConcentrationLimitData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Carbon dioxide concentration data defining the limit.",
+    "rdfs:label": "CarbonDioxideConcentrationLimitData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:CurrentSpeed",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Current variable speed, e.g., it is 0% (off) to 100% (full speed). Other units apply.",
+    "rdfs:label": "CurrentSpeed",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:False",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:providesSpeedData",
+    "@type": "rdf:Property",
+    "rdfs:label": "providesSpeedData",
+    "rdfs:comment": "A property that relates an Interaction Pattern with its output SpeedData.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:CurrentSpeed"
+      },
+      {
+        "@id": "iot:TargetSpeed"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:SpeedData"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:providesOutputData"
+    }
+  },
+  {
+    "@id": "iot:SpeedData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Speed data.",
+    "rdfs:label": "SpeedData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:speedUnitCode",
+    "@type": "rdf:Property",
+    "rdfs:label": "speedUnitCode",
+    "rdfs:comment": "A property that relates iot:speedUnitCode with its unit.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:SpeedData"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:SpeedDataUnit"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "schema:unitCode"
+    }
+  },
+  {
+    "@id": "iot:TargetSpeed",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Speed to be achieved. It may differ from the current speed if a device (e.g., drive or fan) is ramping.",
+    "rdfs:label": "TargetSpeed",
+    "rdfs:subClassOf": {
+      "@id": "iot:Property"
+    },
+    "iot:writable": "schema:Boolean",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:RampUp",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "The soft start of a functionality.",
+    "rdfs:label": "RampUp",
+    "rdfs:subClassOf": {
+      "@id": "iot:Action"
+    },
+    "iot:writable": "schema:Boolean",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:acceptsRampData",
+    "@type": "rdf:Property",
+    "rdfs:label": "acceptsRampData",
+    "rdfs:comment": "A property that relates an Interaction Pattern with its input ampData.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:RampUp"
+      },
+      {
+        "@id": "iot:RampDown"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:RampData"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "iot:acceptsInputData"
+    }
+  },
+  {
+    "@id": "iot:RampDown",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "The soft stop of a functionality.",
+    "rdfs:label": "RampDown",
+    "rdfs:subClassOf": {
+      "@id": "iot:Action"
+    },
+    "iot:writable": "schema:Boolean",
+    "iot:observable": "schema:Boolean"
+  },
+  {
+    "@id": "iot:RampData",
+    "@type": "rdfs:Class",
+    "rdfs:comment": "Ramp data.",
+    "rdfs:label": "RampData",
+    "rdfs:subClassOf": {
+      "@id": "schema:PropertyValue"
+    }
+  },
+  {
+    "@id": "iot:rampUnitCode",
+    "@type": "rdf:Property",
+    "rdfs:label": "rampUnitCode",
+    "rdfs:comment": "A property that relates iot:rampUnitCode with its unit.",
+    "schema:domainIncludes": [
+      {
+        "@id": "iot:RampData"
+      }
+    ],
+    "schema:rangeIncludes": {
+      "@id": "iot:RampUnit"
+    },
+    "rdfs:subPropertyOf": {
+      "@id": "schema:unitCode"
+    }
   }
 ]
 }
